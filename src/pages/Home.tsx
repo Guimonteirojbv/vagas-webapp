@@ -6,8 +6,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { useApi } from '../hooks/useApi';
-
 import {
     OurSitesSection,
     CardWrapper,
@@ -32,7 +30,6 @@ import Testimonials from '../components/Home/Testimonials';
 import { Testimonial } from '../Mocks/Testimonial';
 import { TestimonialType } from '../@types/testimonial-type';
 import JourneySection from '../components/JourneySection/index';
-import useJobs from '../hooks/useJobs';
 
 import heroHome from '../assets/imgs/hero-home.svg';
 import decorateHome from '../assets/imgs/decorate-home.svg';
@@ -48,15 +45,14 @@ SwiperCore.use([Navigation, Autoplay]);
 
 export const Home: React.FC = () => {
     const [isVisible, setIsVisible] = React.useState<boolean>(false);
-    const { filteredJobsCount } = useJobs();
 
     React.useEffect(() => {
         setIsVisible(true);
     }, []);
 
     return (
-        <>
-            <main className="bg-blue-lightTransparent p-4 md:py-6 lg:p-8 lg:pb-0 ">
+        <main>
+            <section className="bg-blue-lightTransparent p-4 md:py-6 lg:p-8 lg:pb-0 ">
                 <div
                     className={`max-w-[1440px] m-[0_auto] relative transition-all duration-700 ease-out
                                 ${
@@ -107,15 +103,15 @@ export const Home: React.FC = () => {
                         className="absolute top-0 left-[45%] hidden lg:block "
                     />
                 </div>
-            </main>
+            </section>
 
             <VocationalBannerArea>
                 <VocationalBannerContainer>
                     <VocationalTextContainer>
-                        <h1>
+                        <h2>
                             TESTE <br />
                             <span>VOCACIONAL</span>
-                        </h1>
+                        </h2>
                         <p className="mb-10">
                             <a
                                 href="https://especiais.g1.globo.com/educacao/guia-de-carreiras/teste-vocacional/"
@@ -232,6 +228,6 @@ export const Home: React.FC = () => {
                     </TestimonialWrapper>
                 </Swiper>
             </TestimonialSection>
-        </>
+        </main>
     );
 };

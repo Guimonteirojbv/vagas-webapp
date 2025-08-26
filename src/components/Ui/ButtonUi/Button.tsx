@@ -1,4 +1,4 @@
-import { cva, cx, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
@@ -10,9 +10,9 @@ const buttonVariants = cva(
                 primary:
                     'bg-blue-dark200 text-white hover:bg-blue-dark300 active:bg-blue-dark400 focus:outline-2 focus:outline-blue-light300 disabled:bg-gray-disabled',
                 secondary:
-                    'bg-transparent border-2 p flex items-center border-blue-dark200 hover:border-blue-dark300 hover:text-blue-dark300 active:border-blue-dark400 active:text-blue-dark400 focus:outline-2 focus:outline-blue-light300 disabled:border-gray-disabled disabled:text-gray-disabled  ',
+                    'bg-transparent border-2  flex items-center border-blue-dark200 hover:border-blue-dark300 hover:text-blue-dark300 active:border-blue-dark400 active:text-blue-dark400 focus:outline-2 focus:outline-blue-light300 disabled:border-gray-disabled disabled:text-gray-disabled  ',
                 tertiary:
-                    'border-0 text-blue-dark200 hover:text-blue-dark300 active:text-blue-dark400 focus-visible:outline-hidden focus-visible:ring-0 focus-visible:border-b-2 focus-visible:border-blue-light300 disabled:text-gray-disabled',
+                    'border-0 text-blue-dark200 hover:text-blue-dark300 active:text-blue-dark400 focus-visible:outline-none focus-visible:ring-0 focus-visible:border-b-2 focus-visible:border-blue-light300 disabled:text-gray-disabled',
             },
         },
         defaultVariants: {
@@ -35,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
         <button
             type={props.type ?? 'button'}
             className={buttonVariants({ intent, className })}
-            disabled={disabled || undefined}
+            disabled={disabled}
             {...props}
         ></button>
     );
